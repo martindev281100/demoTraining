@@ -267,11 +267,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Trainees\Create.cshtml" />
-    <Content Include="Views\Trainees\Delete.cshtml" />
-    <Content Include="Views\Trainees\Details.cshtml" />
-    <Content Include="Views\Trainees\Edit.cshtml" />
-    <Content Include="Views\Trainees\Index.cshtml" />
     <Content Include="Views\Courses\Create.cshtml" />
     <Content Include="Views\Courses\Delete.cshtml" />
     <Content Include="Views\Courses\Details.cshtml" />
@@ -298,6 +293,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_TraineeMenu.cshtml" />
     <Content Include="Views\Shared\_TrainerMenu.cshtml" />
+    <Content Include="Views\Trainees\Create.cshtml" />
+    <Content Include="Views\Trainees\Delete.cshtml" />
+    <Content Include="Views\Trainees\Details.cshtml" />
+    <Content Include="Views\Trainees\Edit.cshtml" />
+    <Content Include="Views\Trainees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

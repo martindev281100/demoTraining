@@ -52,6 +52,7 @@ namespace demoTraining.Controllers
             {
                 db.Trainees.Add(trainee);
                 db.SaveChanges();
+                AuthenController.CreateAccount(trainee.TraineeEmail, "123456", "Trainee");
                 return RedirectToAction("Index");
             }
 
