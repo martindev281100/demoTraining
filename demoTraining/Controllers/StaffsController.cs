@@ -10,109 +10,110 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
-    [Authorize(Roles = "Staff")]
-
-    public class CategoriesController : Controller
+    [Authorize (Roles = "Admin")]
+    public class StaffsController : Controller
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
-        // GET: Categories
+        // GET: Staffs
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Staffs.ToList());
         }
 
-        // GET: Categories/Details/5
+        // GET: Staffs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            Staff staff = db.Staffs.Find(id);
+            if (staff == null)
             {
                 return HttpNotFound();
             }
-            return View(category);
+            return View(staff);
         }
 
-        // GET: Categories/Create
+        // GET: Staffs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: Staffs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryID,CategoryName,CategoryDescription")] Category category)
+        public ActionResult Create([Bind(Include = "StaffID,StaffName,DOB,StaffEmail,StaffPhone")] Staff staff)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
+                db.Staffs.Add(staff);
                 db.SaveChanges();
+                AuthenController.CreateAccount(staff.StaffEmail, "123456", "Staff");
+
                 return RedirectToAction("Index");
             }
 
-            return View(category);
+            return View(staff);
         }
 
-        // GET: Categories/Edit/5
+        // GET: Staffs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            Staff staff = db.Staffs.Find(id);
+            if (staff == null)
             {
                 return HttpNotFound();
             }
-            return View(category);
+            return View(staff);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Staffs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,CategoryDescription")] Category category)
+        public ActionResult Edit([Bind(Include = "StaffID,StaffName,DOB,StaffEmail,StaffPhone")] Staff staff)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(category).State = EntityState.Modified;
+                db.Entry(staff).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(category);
+            return View(staff);
         }
 
-        // GET: Categories/Delete/5
+        // GET: Staffs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            Staff staff = db.Staffs.Find(id);
+            if (staff == null)
             {
                 return HttpNotFound();
             }
-            return View(category);
+            return View(staff);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Staffs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
+            Staff staff = db.Staffs.Find(id);
+            db.Staffs.Remove(staff);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -125,5 +126,14 @@ namespace demoTraining.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Profile()
+        {
+            var userName = User.Identity.Name;
+            //var student = db.Students.Where(s => s.StudentID.Equals(userName));
+            var staff = (from s in db.Staffs where s.StaffEmail.Equals(userName) select s)
+                .FirstOrDefault();
+            return View(staff);
+        }
+
     }
 }

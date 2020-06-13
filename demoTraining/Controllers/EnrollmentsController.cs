@@ -10,7 +10,8 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
-    [Authorize(Roles = "Staff, Trainer")]
+    [Authorize(Roles = "Staff")]
+
     public class EnrollmentsController : Controller
     {
         private TrainingDBEntities db = new TrainingDBEntities();
@@ -18,7 +19,8 @@ namespace demoTraining.Controllers
         // GET: Enrollments
         public ActionResult Index()
         {
-            return View(db.Enrollments.ToList());
+            var enrollments = db.Enrollments.Include(e => e.Course).Include(e => e.Topic).Include(e => e.Trainer).Include(e => e.Trainee);
+            return View(enrollments.ToList());
         }
 
         // GET: Enrollments/Details/5
@@ -39,6 +41,10 @@ namespace demoTraining.Controllers
         // GET: Enrollments/Create
         public ActionResult Create()
         {
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseName");
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName");
+            ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName");
+            ViewBag.TraineeID = new SelectList(db.Trainees, "TraineeID", "TraineeName");
             return View();
         }
 
@@ -47,7 +53,7 @@ namespace demoTraining.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EnrollmentID,StaffID,TopicID,TraineeID,CourseID")] Enrollment enrollment)
+        public ActionResult Create([Bind(Include = "EnrollmentID,TrainerID,TopicID,TraineeID,CourseID")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +62,10 @@ namespace demoTraining.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseName", enrollment.CourseID);
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", enrollment.TopicID);
+            ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName", enrollment.TrainerID);
+            ViewBag.TraineeID = new SelectList(db.Trainees, "TraineeID", "TraineeName", enrollment.TraineeID);
             return View(enrollment);
         }
 
@@ -71,6 +81,10 @@ namespace demoTraining.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseName", enrollment.CourseID);
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", enrollment.TopicID);
+            ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName", enrollment.TrainerID);
+            ViewBag.TraineeID = new SelectList(db.Trainees, "TraineeID", "TraineeName", enrollment.TraineeID);
             return View(enrollment);
         }
 
@@ -79,7 +93,7 @@ namespace demoTraining.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EnrollmentID,StaffID,TopicID,TraineeID,CourseID")] Enrollment enrollment)
+        public ActionResult Edit([Bind(Include = "EnrollmentID,TrainerID,TopicID,TraineeID,CourseID")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +101,10 @@ namespace demoTraining.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseName", enrollment.CourseID);
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", enrollment.TopicID);
+            ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName", enrollment.TrainerID);
+            ViewBag.TraineeID = new SelectList(db.Trainees, "TraineeID", "TraineeName", enrollment.TraineeID);
             return View(enrollment);
         }
 

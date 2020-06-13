@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "_StaffMenu";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<ul class="nav navbar-nav navbar-right">
+    <li>@Html.ActionLink("Topic", "Index", "Topics")</li>
+    <li>@Html.ActionLink("Course", "Index", "Courses")</li>
+    <li>@Html.ActionLink("Enrollment", "Index", "Enrollments")</li>
+    <li>@Html.ActionLink("Category", "Index", "Categories")</li>
+    <li>@Html.ActionLink("Trainer", "Index", "Trainers")</li>
+    <li>@Html.ActionLink("My Course", "MyCourse", "Trainers")</li>
+</ul>

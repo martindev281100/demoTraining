@@ -33,9 +33,9 @@ namespace demoTraining.Models
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Enrollment> Enrollments { get; set; }
+        public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<Trainee> Trainees { get; set; }
-
-        public System.Data.Entity.DbSet<demoTraining.Models.Account> Accounts { get; set; }
+        public virtual DbSet<Trainer> Trainers { get; set; }
     }
 }

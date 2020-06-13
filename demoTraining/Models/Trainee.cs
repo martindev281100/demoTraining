@@ -14,6 +14,12 @@ namespace demoTraining.Models
     
     public partial class Trainee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Trainee()
+        {
+            this.Enrollments = new HashSet<Enrollment>();
+        }
+    
         public int TraineeID { get; set; }
         public string TraineeName { get; set; }
         public string TraineeEmail { get; set; }
@@ -22,5 +28,8 @@ namespace demoTraining.Models
         public string ProgrammingLanguage { get; set; }
         public Nullable<int> ToeicScore { get; set; }
         public string Address { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }

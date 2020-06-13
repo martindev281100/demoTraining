@@ -12,17 +12,12 @@ namespace demoTraining.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Enrollment
+    public partial class Staff
     {
-        public int EnrollmentID { get; set; }
-        public Nullable<int> TrainerID { get; set; }
-        public Nullable<int> TopicID { get; set; }
-        public Nullable<int> TraineeID { get; set; }
-        public Nullable<int> CourseID { get; set; }
-    
-        public virtual Course Course { get; set; }
-        public virtual Topic Topic { get; set; }
-        public virtual Trainer Trainer { get; set; }
-        public virtual Trainee Trainee { get; set; }
+        public int StaffID { get; set; }
+        public string StaffName { get; set; }
+        public Nullable<System.DateTime> DOB { get; set; }
+        public string StaffEmail { get; set; }
+        public string StaffPhone { get; set; }
     }
 }

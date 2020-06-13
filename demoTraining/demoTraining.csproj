@@ -160,8 +160,10 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Controllers\TraineesController.cs" />
+    <Compile Include="Controllers\TrainersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,10 +192,16 @@
     <Compile Include="Models\Enrollment.cs">
       <DependentUpon>TrainingModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Staff.cs">
+      <DependentUpon>TrainingModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Topic.cs">
       <DependentUpon>TrainingModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Trainee.cs">
+      <DependentUpon>TrainingModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trainer.cs">
       <DependentUpon>TrainingModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrainingModels.Context.cs">
@@ -225,8 +233,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\TrainingModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TrainingModels.Context.cs</LastGenOutput>
       <DependentUpon>TrainingModels.edmx</DependentUpon>
+      <LastGenOutput>TrainingModels.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\TrainingModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -282,11 +290,6 @@
     <Content Include="Views\Topics\Details.cshtml" />
     <Content Include="Views\Topics\Edit.cshtml" />
     <Content Include="Views\Topics\Index.cshtml" />
-    <Content Include="Views\Enrollments\Create.cshtml" />
-    <Content Include="Views\Enrollments\Delete.cshtml" />
-    <Content Include="Views\Enrollments\Details.cshtml" />
-    <Content Include="Views\Enrollments\Edit.cshtml" />
-    <Content Include="Views\Enrollments\Index.cshtml" />
     <Content Include="Views\Authen\Register.cshtml" />
     <Content Include="Views\Authen\Login.cshtml" />
     <Content Include="Views\Shared\_AdminMenu.cshtml" />
@@ -298,6 +301,25 @@
     <Content Include="Views\Trainees\Details.cshtml" />
     <Content Include="Views\Trainees\Edit.cshtml" />
     <Content Include="Views\Trainees\Index.cshtml" />
+    <Content Include="Views\Staffs\Create.cshtml" />
+    <Content Include="Views\Staffs\Delete.cshtml" />
+    <Content Include="Views\Staffs\Details.cshtml" />
+    <Content Include="Views\Staffs\Edit.cshtml" />
+    <Content Include="Views\Staffs\Index.cshtml" />
+    <Content Include="Views\Trainers\Create.cshtml" />
+    <Content Include="Views\Trainers\Delete.cshtml" />
+    <Content Include="Views\Trainers\Details.cshtml" />
+    <Content Include="Views\Trainers\Edit.cshtml" />
+    <Content Include="Views\Trainers\Index.cshtml" />
+    <Content Include="Views\Enrollments\Create.cshtml" />
+    <Content Include="Views\Enrollments\Delete.cshtml" />
+    <Content Include="Views\Enrollments\Details.cshtml" />
+    <Content Include="Views\Enrollments\Edit.cshtml" />
+    <Content Include="Views\Enrollments\Index.cshtml" />
+    <Content Include="Views\Shared\_StaffMenu.cshtml" />
+    <Content Include="Views\Staffs\Profile.cshtml" />
+    <Content Include="Views\Trainers\Profile.cshtml" />
+    <Content Include="Views\Trainers\MyCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

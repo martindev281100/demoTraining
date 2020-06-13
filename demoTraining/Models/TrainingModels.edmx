@@ -89,10 +89,20 @@
             <PropertyRef Name="EnrollmentID" />
           </Key>
           <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="StaffID" Type="int" />
+          <Property Name="TrainerID" Type="int" />
           <Property Name="TopicID" Type="int" />
           <Property Name="TraineeID" Type="int" />
           <Property Name="CourseID" Type="int" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="StaffEmail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="StaffPhone" Type="nchar" MaxLength="11" />
         </EntityType>
         <EntityType Name="Topic">
           <Key>
@@ -115,6 +125,88 @@
           <Property Name="ToeicScore" Type="int" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="TrainerID" />
+          </Key>
+          <Property Name="TrainerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="TrainerEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="TrainerPhone" Type="nchar" MaxLength="11" />
+        </EntityType>
+        <Association Name="FK__Course__Category__4E88ABD4">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__TopicID__4D94879B">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Course1" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Course1">
+              <PropertyRef Name="TopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__Cours__4CA06362">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__Topic__4AB81AF0">
+          <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="TopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__Train__52593CB8">
+          <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainer">
+              <PropertyRef Name="TrainerID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="TrainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__Train__534D60F1">
+          <End Role="Trainee" Type="Self.Trainee" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainee">
+              <PropertyRef Name="TraineeID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="TraineeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -181,8 +273,34 @@
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Enrollment" EntityType="Self.Enrollment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trainee" EntityType="Self.Trainee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainer" EntityType="Self.Trainer" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Course__Category__4E88ABD4" Association="Self.FK__Course__Category__4E88ABD4">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__TopicID__4D94879B" Association="Self.FK__Course__TopicID__4D94879B">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Course1" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__Cours__4CA06362" Association="Self.FK__Enrollmen__Cours__4CA06362">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__Topic__4AB81AF0" Association="Self.FK__Enrollmen__Topic__4AB81AF0">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__Train__52593CB8" Association="Self.FK__Enrollmen__Train__52593CB8">
+            <End Role="Trainer" EntitySet="Trainer" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__Train__534D60F1" Association="Self.FK__Enrollmen__Train__534D60F1">
+            <End Role="Trainee" EntitySet="Trainee" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -271,6 +389,7 @@
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CategoryDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK__Course__Category__4E88ABD4" FromRole="Category" ToRole="Course" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -281,16 +400,34 @@
           <Property Name="CourseDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TopicID" Type="Int32" />
           <Property Name="CategoryID" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Course__Category__4E88ABD4" FromRole="Course" ToRole="Category" />
+          <NavigationProperty Name="Course1" Relationship="Self.FK__Course__TopicID__4D94879B" FromRole="Course" ToRole="Course1" />
+          <NavigationProperty Name="Course2" Relationship="Self.FK__Course__TopicID__4D94879B" FromRole="Course1" ToRole="Course" />
+          <NavigationProperty Name="Enrollments" Relationship="Self.FK__Enrollmen__Cours__4CA06362" FromRole="Course" ToRole="Enrollment" />
         </EntityType>
         <EntityType Name="Enrollment">
           <Key>
             <PropertyRef Name="EnrollmentID" />
           </Key>
           <Property Name="EnrollmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StaffID" Type="Int32" />
+          <Property Name="TrainerID" Type="Int32" />
           <Property Name="TopicID" Type="Int32" />
           <Property Name="TraineeID" Type="Int32" />
           <Property Name="CourseID" Type="Int32" />
+          <NavigationProperty Name="Course" Relationship="Self.FK__Enrollmen__Cours__4CA06362" FromRole="Enrollment" ToRole="Course" />
+          <NavigationProperty Name="Topic" Relationship="Self.FK__Enrollmen__Topic__4AB81AF0" FromRole="Enrollment" ToRole="Topic" />
+          <NavigationProperty Name="Trainer" Relationship="Self.FK__Enrollmen__Train__52593CB8" FromRole="Enrollment" ToRole="Trainer" />
+          <NavigationProperty Name="Trainee" Relationship="Self.FK__Enrollmen__Train__534D60F1" FromRole="Enrollment" ToRole="Trainee" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="StaffEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StaffPhone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Topic">
           <Key>
@@ -299,6 +436,7 @@
           <Property Name="TopicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TopicName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TopicDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Enrollments" Relationship="Self.FK__Enrollmen__Topic__4AB81AF0" FromRole="Topic" ToRole="Enrollment" />
         </EntityType>
         <EntityType Name="Trainee">
           <Key>
@@ -312,6 +450,18 @@
           <Property Name="ProgrammingLanguage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ToeicScore" Type="Int32" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Enrollments" Relationship="Self.FK__Enrollmen__Train__534D60F1" FromRole="Trainee" ToRole="Enrollment" />
+        </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="TrainerID" />
+          </Key>
+          <Property Name="TrainerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="TrainerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TrainerPhone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Enrollments" Relationship="Self.FK__Enrollmen__Train__52593CB8" FromRole="Trainer" ToRole="Enrollment" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -341,6 +491,78 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Course__Category__4E88ABD4">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__TopicID__4D94879B">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Course1" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Course1">
+              <PropertyRef Name="TopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__Cours__4CA06362">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__Topic__4AB81AF0">
+          <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="TopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__Train__52593CB8">
+          <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainer">
+              <PropertyRef Name="TrainerID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="TrainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Enrollmen__Train__534D60F1">
+          <End Role="Trainee" Type="Self.Trainee" Multiplicity="0..1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainee">
+              <PropertyRef Name="TraineeID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="TraineeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="AspNetUserRoles">
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
@@ -354,8 +576,10 @@
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="Enrollments" EntityType="Self.Enrollment" />
+          <EntitySet Name="Staffs" EntityType="Self.Staff" />
           <EntitySet Name="Topics" EntityType="Self.Topic" />
           <EntitySet Name="Trainees" EntityType="Self.Trainee" />
+          <EntitySet Name="Trainers" EntityType="Self.Trainer" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -363,6 +587,30 @@
           <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__Category__4E88ABD4" Association="Self.FK__Course__Category__4E88ABD4">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__TopicID__4D94879B" Association="Self.FK__Course__TopicID__4D94879B">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Course1" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__Cours__4CA06362" Association="Self.FK__Enrollmen__Cours__4CA06362">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__Topic__4AB81AF0" Association="Self.FK__Enrollmen__Topic__4AB81AF0">
+            <End Role="Topic" EntitySet="Topics" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__Train__52593CB8" Association="Self.FK__Enrollmen__Train__52593CB8">
+            <End Role="Trainer" EntitySet="Trainers" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Enrollmen__Train__534D60F1" Association="Self.FK__Enrollmen__Train__534D60F1">
+            <End Role="Trainee" EntitySet="Trainees" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
@@ -454,10 +702,21 @@
             <EntityTypeMapping TypeName="TrainingDBModel.Enrollment">
               <MappingFragment StoreEntitySet="Enrollment">
                 <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
-                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="TrainerID" ColumnName="TrainerID" />
                 <ScalarProperty Name="TopicID" ColumnName="TopicID" />
                 <ScalarProperty Name="TraineeID" ColumnName="TraineeID" />
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="TrainingDBModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
+                <ScalarProperty Name="StaffPhone" ColumnName="StaffPhone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -481,6 +740,17 @@
                 <ScalarProperty Name="ProgrammingLanguage" ColumnName="ProgrammingLanguage" />
                 <ScalarProperty Name="ToeicScore" ColumnName="ToeicScore" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainers">
+            <EntityTypeMapping TypeName="TrainingDBModel.Trainer">
+              <MappingFragment StoreEntitySet="Trainer">
+                <ScalarProperty Name="TrainerID" ColumnName="TrainerID" />
+                <ScalarProperty Name="TrainerName" ColumnName="TrainerName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="TrainerEmail" ColumnName="TrainerEmail" />
+                <ScalarProperty Name="TrainerPhone" ColumnName="TrainerPhone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

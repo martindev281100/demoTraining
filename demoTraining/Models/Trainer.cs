@@ -12,25 +12,20 @@ namespace demoTraining.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Course
+    public partial class Trainer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Course()
+        public Trainer()
         {
-            this.Course1 = new HashSet<Course>();
             this.Enrollments = new HashSet<Enrollment>();
         }
     
-        public int CourseID { get; set; }
-        public string CourseName { get; set; }
-        public string CourseDescription { get; set; }
-        public Nullable<int> TopicID { get; set; }
-        public Nullable<int> CategoryID { get; set; }
+        public int TrainerID { get; set; }
+        public string TrainerName { get; set; }
+        public Nullable<System.DateTime> DOB { get; set; }
+        public string TrainerEmail { get; set; }
+        public string TrainerPhone { get; set; }
     
-        public virtual Category Category { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Course1 { get; set; }
-        public virtual Course Course2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
