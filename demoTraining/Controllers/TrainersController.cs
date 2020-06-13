@@ -10,8 +10,7 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
-    [Authorize(Roles = "Staff")]
-    [Authorize(Roles = "Trainer")]
+    [Authorize(Roles = "Staff, Trainer")]
     public class TrainersController : Controller
     {
         private TrainingDBEntities db = new TrainingDBEntities();
@@ -127,6 +126,7 @@ namespace demoTraining.Controllers
             }
             base.Dispose(disposing);
         }
+
         public ActionResult Profile()
         {
             var userName = User.Identity.Name;
