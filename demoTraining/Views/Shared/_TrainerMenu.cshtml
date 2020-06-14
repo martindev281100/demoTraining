@@ -1,11 +1,16 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
     ViewBag.Title = "_TrainerMenu";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Profile", "Trainers", routeValues: null, htmlAttributes: new { title = "Profile" })
+    </li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+</ul>
 
 <ul class="nav navbar-nav navbar-right">
-    <li>@Html.ActionLink("Profile", "Profile", "Trainers")</li>
     <li>@Html.ActionLink("My Course", "MyCourse", "Trainers")</li>
 </ul>

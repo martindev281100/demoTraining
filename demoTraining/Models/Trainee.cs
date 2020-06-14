@@ -17,7 +17,7 @@ namespace demoTraining.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Trainee()
         {
-            this.Enrollments = new HashSet<Enrollment>();
+            this.TraineeEnrollments = new HashSet<TraineeEnrollment>();
         }
     
         public int TraineeID { get; set; }
@@ -30,6 +30,6 @@ namespace demoTraining.Models
         public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Enrollment> Enrollments { get; set; }
+        public virtual ICollection<TraineeEnrollment> TraineeEnrollments { get; set; }
     }
 }

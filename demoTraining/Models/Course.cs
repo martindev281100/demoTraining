@@ -18,7 +18,7 @@ namespace demoTraining.Models
         public Course()
         {
             this.Course1 = new HashSet<Course>();
-            this.Enrollments = new HashSet<Enrollment>();
+            this.TraineeEnrollments = new HashSet<TraineeEnrollment>();
         }
     
         public int CourseID { get; set; }
@@ -32,6 +32,6 @@ namespace demoTraining.Models
         public virtual ICollection<Course> Course1 { get; set; }
         public virtual Course Course2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Enrollment> Enrollments { get; set; }
+        public virtual ICollection<TraineeEnrollment> TraineeEnrollments { get; set; }
     }
 }

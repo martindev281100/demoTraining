@@ -1,4 +1,4 @@
-﻿@model demoTraining.Models.Enrollment
+﻿@model demoTraining.Models.TrainerEnrollment
 
 @{
     ViewBag.Title = "Details";
@@ -8,17 +8,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Enrollment</h4>
+    <h4>TrainerEnrollment</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Course.CourseName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Course.CourseName)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Topic.TopicName)
         </dt>
@@ -35,17 +27,9 @@
             @Html.DisplayFor(model => model.Trainer.TrainerName)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Trainee.TraineeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Trainee.TraineeName)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EnrollmentID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TrainerEnrollmentID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

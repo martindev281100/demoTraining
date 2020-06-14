@@ -13,25 +13,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TraineeName)
+            @Html.ActionLink("Trainee Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TraineeEmail)
+            <p>Email</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DOB)
+            <p>DOB</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Education)
+            <p>Education</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProgrammingLanguage)
+            <p>Programming Language</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ToeicScore)
+            @Html.ActionLink("Toeic Score", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
+            <p>Address</p>
         </th>
         <th></th>
     </tr>

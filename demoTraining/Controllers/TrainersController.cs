@@ -139,7 +139,7 @@ namespace demoTraining.Controllers
         public ActionResult MyCourse()
         {
             var userName = User.Identity.Name;
-            var enrollments = from e in db.Enrollments
+            var enrollments = from e in db.TrainerEnrollments
                 where e.Trainer.TrainerEmail.Equals(userName)
                 select e;
             return View(enrollments.ToList());

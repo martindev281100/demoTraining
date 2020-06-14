@@ -19,10 +19,10 @@
             @Html.DisplayNameFor(model => model.CourseDescription)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TopicID)
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CategoryID)
+            @Html.DisplayNameFor(model => model.Course2.CourseName)
         </th>
         <th></th>
     </tr>
@@ -36,10 +36,10 @@
             @Html.DisplayFor(modelItem => item.CourseDescription)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TopicID)
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CategoryID)
+            @Html.DisplayFor(modelItem => item.Course2.CourseName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CourseID }) |

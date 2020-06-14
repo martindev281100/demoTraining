@@ -158,11 +158,12 @@
     <Compile Include="Controllers\AuthenController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
-    <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
+    <Compile Include="Controllers\TraineeEnrollmentsController.cs" />
     <Compile Include="Controllers\TraineesController.cs" />
+    <Compile Include="Controllers\TrainerEnrollmentsController.cs" />
     <Compile Include="Controllers\TrainersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -189,9 +190,6 @@
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>TrainingModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Enrollment.cs">
-      <DependentUpon>TrainingModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Staff.cs">
       <DependentUpon>TrainingModels.tt</DependentUpon>
     </Compile>
@@ -201,7 +199,13 @@
     <Compile Include="Models\Trainee.cs">
       <DependentUpon>TrainingModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TraineeEnrollment.cs">
+      <DependentUpon>TrainingModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Trainer.cs">
+      <DependentUpon>TrainingModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TrainerEnrollment.cs">
       <DependentUpon>TrainingModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrainingModels.Context.cs">
@@ -275,11 +279,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Courses\Create.cshtml" />
-    <Content Include="Views\Courses\Delete.cshtml" />
-    <Content Include="Views\Courses\Details.cshtml" />
-    <Content Include="Views\Courses\Edit.cshtml" />
-    <Content Include="Views\Courses\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Categories\Details.cshtml" />
@@ -311,15 +310,27 @@
     <Content Include="Views\Trainers\Details.cshtml" />
     <Content Include="Views\Trainers\Edit.cshtml" />
     <Content Include="Views\Trainers\Index.cshtml" />
-    <Content Include="Views\Enrollments\Create.cshtml" />
-    <Content Include="Views\Enrollments\Delete.cshtml" />
-    <Content Include="Views\Enrollments\Details.cshtml" />
-    <Content Include="Views\Enrollments\Edit.cshtml" />
-    <Content Include="Views\Enrollments\Index.cshtml" />
     <Content Include="Views\Shared\_StaffMenu.cshtml" />
     <Content Include="Views\Staffs\Profile.cshtml" />
     <Content Include="Views\Trainers\Profile.cshtml" />
     <Content Include="Views\Trainers\MyCourse.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Delete.cshtml" />
+    <Content Include="Views\Courses\Details.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\TraineeEnrollments\Create.cshtml" />
+    <Content Include="Views\TraineeEnrollments\Delete.cshtml" />
+    <Content Include="Views\TraineeEnrollments\Details.cshtml" />
+    <Content Include="Views\TraineeEnrollments\Edit.cshtml" />
+    <Content Include="Views\TraineeEnrollments\Index.cshtml" />
+    <Content Include="Views\TrainerEnrollments\Create.cshtml" />
+    <Content Include="Views\TrainerEnrollments\Delete.cshtml" />
+    <Content Include="Views\TrainerEnrollments\Details.cshtml" />
+    <Content Include="Views\TrainerEnrollments\Edit.cshtml" />
+    <Content Include="Views\TrainerEnrollments\Index.cshtml" />
+    <Content Include="Views\Trainees\Profile.cshtml" />
+    <Content Include="Views\Trainees\MyCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<demoTraining.Models.Enrollment>
+﻿@model IEnumerable<demoTraining.Models.TraineeEnrollment>
 
 @{
     ViewBag.Title = "Index";
@@ -10,16 +10,13 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<p>
+    <a href="/TrainerEnrollments">Enroll for Trainer</a>
+</p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Course.CourseName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Topic.TopicName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trainer.TrainerName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Trainee.TraineeName)
@@ -33,18 +30,12 @@
             @Html.DisplayFor(modelItem => item.Course.CourseName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Topic.TopicName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trainer.TrainerName)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Trainee.TraineeName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EnrollmentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EnrollmentID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.TraineeEnrollments }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TraineeEnrollments }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TraineeEnrollments })
         </td>
     </tr>
 }

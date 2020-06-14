@@ -1,4 +1,4 @@
-﻿@model IEnumerable<demoTraining.Models.Trainer>
+﻿@model IEnumerable<demoTraining.Models.TrainerEnrollment>
 
 @{
     ViewBag.Title = "MyCourse";
@@ -13,38 +13,29 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TrainerName)
+            @Html.DisplayNameFor(model => model.Trainer.TrainerName)
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.DOB)
+            @Html.DisplayNameFor(model => model.Topic.TopicName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TrainerEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TrainerPhone)
-        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.TrainerName)
+            @Html.DisplayFor(modelItem => item.Trainer.TrainerName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Topic.TopicName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DOB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrainerEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrainerPhone)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TrainerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TrainerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TrainerID })
+            @Html.ActionLink("Edit", "Edit", new {id = item.TrainerID}) |
+            @Html.ActionLink("Details", "Details", new {id = item.TrainerID}) |
+            @Html.ActionLink("Delete", "Delete", new {id = item.TrainerID})
         </td>
     </tr>
 }

@@ -15,12 +15,33 @@ namespace demoTraining.Controllers
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
-        // GET: Trainees
-        public ActionResult Index()
+        
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            return View(db.Trainees.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var trainee = from s in db.Trainees
+                select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                trainee = trainee.Where(t => t.TraineeName.Contains(searchString)
+                                               || t.TraineeEmail.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    trainee = trainee.OrderByDescending(s => s.TraineeName);
+                    break;
+                case "score":
+                    trainee = trainee.OrderBy(s => s.ToeicScore);
+                    break;
+               
+                default:
+                    trainee = trainee.OrderBy(s => s.TraineeName);
+                    break;
+            }
+            return View(trainee.ToList());
         }
-
         // GET: Trainees/Details/5
         public ActionResult Details(int? id)
         {
@@ -124,6 +145,23 @@ namespace demoTraining.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult Profile()
+        {
+            var userName = User.Identity.Name;
+            //var student = db.Students.Where(s => s.StudentID.Equals(userName));
+            var trainee = (from t in db.Trainees where t.TraineeEmail.Equals(userName) select t)
+                .FirstOrDefault();
+            return View(trainee);
+        }
+
+        public ActionResult MyCourse()
+        {
+            var userName = User.Identity.Name;
+            var enrollments = from e in db.TraineeEnrollments
+                where e.Trainee.TraineeEmail.Equals(userName)
+                select e;
+            return View(enrollments.ToList());
         }
     }
 }

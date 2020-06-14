@@ -10,117 +10,118 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
-    [Authorize(Roles = "Staff, Trainee, Trainer")]
-    public class CoursesController : Controller
+    [Authorize(Roles = "Staff")]
+
+    public class TrainerEnrollmentsController : Controller
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
-        // GET: Courses
+        // GET: TrainerEnrollments
         public ActionResult Index()
         {
-            var courses = db.Courses.Include(c => c.Category).Include(c => c.Course2);
-            return View(courses.ToList());
+            var trainerEnrollments = db.TrainerEnrollments.Include(t => t.Topic).Include(t => t.Trainer);
+            return View(trainerEnrollments.ToList());
         }
 
-        // GET: Courses/Details/5
+        // GET: TrainerEnrollments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.Courses.Find(id);
-            if (course == null)
+            TrainerEnrollment trainerEnrollment = db.TrainerEnrollments.Find(id);
+            if (trainerEnrollment == null)
             {
                 return HttpNotFound();
             }
-            return View(course);
+            return View(trainerEnrollment);
         }
 
-        // GET: Courses/Create
+        // GET: TrainerEnrollments/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
             ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName");
+            ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName");
             return View();
         }
 
-        // POST: Courses/Create
+        // POST: TrainerEnrollments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CourseID,CourseName,CourseDescription,TopicID,CategoryID")] Course course)
+        public ActionResult Create([Bind(Include = "TrainerEnrollmentID,TrainerID,TopicID")] TrainerEnrollment trainerEnrollment)
         {
             if (ModelState.IsValid)
             {
-                db.Courses.Add(course);
+                db.TrainerEnrollments.Add(trainerEnrollment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", course.CategoryID);
-            ViewBag.TopicID = new SelectList(db.Courses, "CourseID", "CourseName", course.TopicID);
-            return View(course);
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", trainerEnrollment.TopicID);
+            ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName", trainerEnrollment.TrainerID);
+            return View(trainerEnrollment);
         }
 
-        // GET: Courses/Edit/5
+        // GET: TrainerEnrollments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.Courses.Find(id);
-            if (course == null)
+            TrainerEnrollment trainerEnrollment = db.TrainerEnrollments.Find(id);
+            if (trainerEnrollment == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", course.CategoryID);
-            ViewBag.TopicID = new SelectList(db.Courses, "CourseID", "CourseName", course.TopicID);
-            return View(course);
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", trainerEnrollment.TopicID);
+            ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName", trainerEnrollment.TrainerID);
+            return View(trainerEnrollment);
         }
 
-        // POST: Courses/Edit/5
+        // POST: TrainerEnrollments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseID,CourseName,CourseDescription,TopicID,CategoryID")] Course course)
+        public ActionResult Edit([Bind(Include = "TrainerEnrollmentID,TrainerID,TopicID")] TrainerEnrollment trainerEnrollment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(course).State = EntityState.Modified;
+                db.Entry(trainerEnrollment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", course.CategoryID);
-            ViewBag.TopicID = new SelectList(db.Courses, "CourseID", "CourseName", course.TopicID);
-            return View(course);
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", trainerEnrollment.TopicID);
+            ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName", trainerEnrollment.TrainerID);
+            return View(trainerEnrollment);
         }
 
-        // GET: Courses/Delete/5
+        // GET: TrainerEnrollments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.Courses.Find(id);
-            if (course == null)
+            TrainerEnrollment trainerEnrollment = db.TrainerEnrollments.Find(id);
+            if (trainerEnrollment == null)
             {
                 return HttpNotFound();
             }
-            return View(course);
+            return View(trainerEnrollment);
         }
 
-        // POST: Courses/Delete/5
+        // POST: TrainerEnrollments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Course course = db.Courses.Find(id);
-            db.Courses.Remove(course);
+            TrainerEnrollment trainerEnrollment = db.TrainerEnrollments.Find(id);
+            db.TrainerEnrollments.Remove(trainerEnrollment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -76,17 +76,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Enrollments">
-      <EntityTypeMapping TypeName="TrainingDBModel.Enrollment">
-        <MappingFragment StoreEntitySet="Enrollment">
-          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
-          <ScalarProperty Name="TrainerID" ColumnName="TrainerID" />
-          <ScalarProperty Name="TopicID" ColumnName="TopicID" />
-          <ScalarProperty Name="TraineeID" ColumnName="TraineeID" />
-          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Staffs">
       <EntityTypeMapping TypeName="TrainingDBModel.Staff">
         <MappingFragment StoreEntitySet="Staff">
@@ -121,6 +110,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TraineeEnrollments">
+      <EntityTypeMapping TypeName="TrainingDBModel.TraineeEnrollment">
+        <MappingFragment StoreEntitySet="TraineeEnrollment">
+          <ScalarProperty Name="TraineeEnrollments" ColumnName="TraineeEnrollments" />
+          <ScalarProperty Name="TraineeID" ColumnName="TraineeID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Trainers">
       <EntityTypeMapping TypeName="TrainingDBModel.Trainer">
         <MappingFragment StoreEntitySet="Trainer">
@@ -129,6 +127,15 @@
           <ScalarProperty Name="DOB" ColumnName="DOB" />
           <ScalarProperty Name="TrainerEmail" ColumnName="TrainerEmail" />
           <ScalarProperty Name="TrainerPhone" ColumnName="TrainerPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainerEnrollments">
+      <EntityTypeMapping TypeName="TrainingDBModel.TrainerEnrollment">
+        <MappingFragment StoreEntitySet="TrainerEnrollment">
+          <ScalarProperty Name="TrainerEnrollmentID" ColumnName="TrainerEnrollmentID" />
+          <ScalarProperty Name="TrainerID" ColumnName="TrainerID" />
+          <ScalarProperty Name="TopicID" ColumnName="TopicID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
