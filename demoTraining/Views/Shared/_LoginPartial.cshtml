@@ -24,10 +24,16 @@
         }
     }
 }
-@*else
+else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Authen", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Authen", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        @*<li>@Html.ActionLink(" LogIn", "Login", "Authen", routeValues: null, htmlAttributes: new { id = "loginLink", @class="glyphicon glyphicon-log-in" })</li>*@
+        <div class="navbar-right">
+            <a href="@Url.Action("Login", "Authen")" class="btn btn-default" style="margin-top: 9px" >
+                LogIn
+                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+            </a>
+        </div>
+        
     </ul>
-}*@
+}

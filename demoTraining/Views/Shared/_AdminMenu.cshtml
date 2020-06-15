@@ -1,13 +1,9 @@
-﻿@using Microsoft.AspNet.Identity
-@{
+﻿@{
     ViewBag.Title = "_AdminMenu";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <ul class="nav navbar-nav navbar-right">
-      
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+
 
 <ul class="nav navbar-nav navbar-right">
     <li>@Html.ActionLink("Profile", "Profile", "Students")</li>
