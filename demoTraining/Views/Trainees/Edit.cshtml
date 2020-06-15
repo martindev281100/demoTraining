@@ -1,4 +1,5 @@
-﻿@model demoTraining.Models.Trainee
+﻿@using Microsoft.Owin.BuilderProperties
+@model demoTraining.Models.Trainee
 
 @{
     ViewBag.Title = "Edit";
@@ -19,7 +20,7 @@
         @Html.HiddenFor(model => model.TraineeID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TraineeName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TraineeName,"Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TraineeName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TraineeName, "", new { @class = "text-danger" })
@@ -27,7 +28,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TraineeEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TraineeEmail,"Email", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TraineeEmail, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TraineeEmail, "", new { @class = "text-danger" })
@@ -35,7 +36,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DOB,"DOB", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
@@ -43,7 +44,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Education, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Education,"Education", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Education, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
@@ -51,7 +52,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ProgrammingLanguage, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ProgrammingLanguage,"Main Programming Language", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ProgrammingLanguage, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ProgrammingLanguage, "", new { @class = "text-danger" })
@@ -59,7 +60,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ToeicScore, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ToeicScore,"Toeic Score", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ToeicScore, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ToeicScore, "", new { @class = "text-danger" })
@@ -67,7 +68,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Address,"Address", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
@@ -76,14 +77,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index",null,new{@class="btn btn-default"})
 </div>
 
 @section Scripts {

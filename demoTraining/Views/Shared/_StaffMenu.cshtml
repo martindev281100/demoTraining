@@ -3,7 +3,12 @@
     ViewBag.Title = "_StaffMenu";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Profile", "Trainees", routeValues: null, htmlAttributes: new { title = "Profile" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
 
 <ul class="nav navbar-nav navbar-right">
     <li>@Html.ActionLink("Topic", "Index", "Topics")</li>
@@ -12,4 +17,5 @@
     <li>@Html.ActionLink("Category", "Index", "Categories")</li>
     <li>@Html.ActionLink("Trainer", "Index", "Trainers")</li>
     <li>@Html.ActionLink("Trainee", "Index", "Trainees")</li>
+    
 </ul>

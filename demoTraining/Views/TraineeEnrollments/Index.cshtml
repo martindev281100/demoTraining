@@ -8,36 +8,42 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<p>
-    <a href="/TrainerEnrollments">Enroll for Trainer</a>
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Course.CourseName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trainee.TraineeName)
-        </th>
-        <th></th>
-    </tr>
+    @Html.ActionLink("Create New", "Create",null, new {@class ="btn btn-default"})
 
-@foreach (var item in Model) {
+@Html.ActionLink("Enroll for Trainer","Index",null, new {@class = "btn btn-default" })</p>
+<table class="table table-striped">
+    <thead>
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Course.CourseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trainee.TraineeName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TraineeEnrollments }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TraineeEnrollments }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TraineeEnrollments })
-        </td>
+        <th>
+            <p>Course Name</p>
+        </th>
+        <th>
+            <p>Trainee Name</p>
+        </th>
+        <th>
+            <p>Action</p>
+        </th>
     </tr>
-}
+    </thead>
+    
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trainee.TraineeName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.TraineeEnrollments}, new {@class = "btn btn-warning"}) 
+                @Html.ActionLink("Details", "Details", new {id = item.TraineeEnrollments}, new {@class = "btn btn-primary"}) 
+                @Html.ActionLink("Delete", "Delete", new {id = item.TraineeEnrollments}, new {@class = "btn btn-danger"})
+            </td>
+        </tr>
+    }
+    </tbody>
+    
 
 </table>
