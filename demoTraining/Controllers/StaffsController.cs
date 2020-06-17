@@ -10,7 +10,7 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
-    [Authorize (Roles = "Admin")]
+    [Authorize (Roles = "Admin, Staff")]
     public class StaffsController : Controller
     {
         private TrainingDBEntities db = new TrainingDBEntities();

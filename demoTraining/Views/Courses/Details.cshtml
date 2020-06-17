@@ -12,7 +12,8 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Course:
+            @*@Html.DisplayNameFor(model => model.CourseName)*@
+            Course Name:
         </dt>
 
         <dd>
@@ -20,7 +21,8 @@
         </dd>
 
         <dt>
-            Course Description:
+            @*@Html.DisplayNameFor(model => model.CourseDescription)*@]
+            Description:
         </dt>
 
         <dd>
@@ -28,7 +30,8 @@
         </dd>
 
         <dt>
-            Category: 
+            @*@Html.DisplayNameFor(model => model.Category.CategoryName)*@
+            Category:
         </dt>
 
         <dd>
@@ -36,17 +39,17 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Course2.CourseName)
+            @*@Html.DisplayNameFor(model => model.Topic.TopicName)*@
+            Topic:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Course2.CourseName)
+            @Html.DisplayFor(model => model.Topic.TopicName)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseID },new {@class="btn btn-warning"})
-    @Html.ActionLink("Back to List", "Index",null, new {@class="btn btn-default"})
-    </div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseID },new{@class="btn btn-warning"}) |
+    @Html.ActionLink("Back to List", "Index", null, new{@class="btn btn-default"})
 </p>

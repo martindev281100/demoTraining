@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace demoTraining.Models
 {
@@ -20,4 +23,6 @@ namespace demoTraining.Models
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
     }
+
+
 }

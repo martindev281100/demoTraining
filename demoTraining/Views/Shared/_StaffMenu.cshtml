@@ -6,7 +6,7 @@
 
 <ul class="nav navbar-nav navbar-right">
     <li>
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Profile", "Trainees", routeValues: null, htmlAttributes: new { title = "Profile" })
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Profile", "Staffs", routeValues: null, htmlAttributes: new { title = "Profile" })
     </li>
     <li><a href="javascript:document.getElementById('logoutForm').submit()" ><span class="glyphicon glyphicon-off"></span> Log Off</a></li>
 </ul>

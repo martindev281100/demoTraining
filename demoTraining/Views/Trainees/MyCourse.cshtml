@@ -8,9 +8,7 @@
 
 <h2>MyCourse</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -19,23 +17,25 @@
         <th>
             Trainee Name
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Course.CourseName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Trainee.TraineeName)
+    </td>
+    @if (User.IsInRole("Staff"))
+    {
         <td>
-            @Html.DisplayFor(modelItem => item.Course.CourseName)
+            @Html.ActionLink("Edit", "Edit", new {id = item.TraineeEnrollments}, new {@class = "btn btn-warning"})
+            @Html.ActionLink("Details", "Details", new {id = item.TraineeEnrollments}, new {@class = "btn btn-primary"})
+            @Html.ActionLink("Delete", "Delete", new {id = item.TraineeEnrollments}, new {@class = "btn btn-danger"})
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trainee.TraineeName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TraineeEnrollments }, new { @class = "btn btn-warning" })
-            @Html.ActionLink("Details", "Details", new { id=item.TraineeEnrollments }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Delete", "Delete", new { id=item.TraineeEnrollments }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
+    }
+</tr>
 }
 
 </table>

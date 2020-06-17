@@ -14,7 +14,7 @@ namespace demoTraining.Models
     
     public partial class TraineeEnrollment
     {
-        public int TraineeEnrollments { get; set; }
+        public int TraineeEnrollmentID { get; set; }
         public int TraineeID { get; set; }
         public int CourseID { get; set; }
     

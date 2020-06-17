@@ -8,11 +8,11 @@
 <h2>Profile</h2>
 
 <div>
-    <h4>Staff</h4>
+    <h4>@Html.DisplayFor(model => model.StaffName)</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.StaffName)
+            Staff Name
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DOB)
+            DoB
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StaffEmail)
+            Staff Email
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StaffPhone)
+            Staff Phone
         </dt>
 
         <dd>
@@ -46,6 +46,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StaffID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StaffID }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-default"})
 </p>

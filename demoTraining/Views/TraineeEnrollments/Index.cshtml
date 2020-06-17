@@ -1,16 +1,17 @@
-﻿@model IEnumerable<demoTraining.Models.TraineeEnrollment>
+﻿@using demoTraining.Controllers
+@model IEnumerable<demoTraining.Models.TraineeEnrollment>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
-
+    <h2>List of Trainee's Enrollments</h2>
 <p>
-    @Html.ActionLink("Create New", "Create",null, new {@class ="btn btn-default"})
+    @Html.ActionLink("Create New Enrollment for Trainee", "Create",null, new {@class ="btn btn-default"})
 
-@Html.ActionLink("Enroll for Trainer","Index",null, new {@class = "btn btn-default" })</p>
+    @Html.ActionLink("Enroll for Trainer","Index","TrainerEnrollments",null, new {@class = "btn btn-default" })
+</p>
+<p></p>
 <table class="table table-striped">
     <thead>
     <tr>

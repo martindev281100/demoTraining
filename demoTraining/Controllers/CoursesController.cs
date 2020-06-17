@@ -10,7 +10,6 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
-    [Authorize(Roles = "Staff, Trainee, Trainer")]
     public class CoursesController : Controller
     {
         private TrainingDBEntities db = new TrainingDBEntities();
@@ -18,7 +17,7 @@ namespace demoTraining.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            var courses = db.Courses.Include(c => c.Category).Include(c => c.Course2);
+            var courses = db.Courses.Include(c => c.Category).Include(c => c.Topic);
             return View(courses.ToList());
         }
 
@@ -60,7 +59,7 @@ namespace demoTraining.Controllers
             }
 
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", course.CategoryID);
-            ViewBag.TopicID = new SelectList(db.Courses, "CourseID", "CourseName", course.TopicID);
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", course.TopicID);
             return View(course);
         }
 
@@ -77,7 +76,7 @@ namespace demoTraining.Controllers
                 return HttpNotFound();
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", course.CategoryID);
-            ViewBag.TopicID = new SelectList(db.Courses, "CourseID", "CourseName", course.TopicID);
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", course.TopicID);
             return View(course);
         }
 
@@ -95,7 +94,7 @@ namespace demoTraining.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", course.CategoryID);
-            ViewBag.TopicID = new SelectList(db.Courses, "CourseID", "CourseName", course.TopicID);
+            ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", course.TopicID);
             return View(course);
         }
 

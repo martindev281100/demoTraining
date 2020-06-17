@@ -113,7 +113,7 @@
     <EntitySetMapping Name="TraineeEnrollments">
       <EntityTypeMapping TypeName="TrainingDBModel.TraineeEnrollment">
         <MappingFragment StoreEntitySet="TraineeEnrollment">
-          <ScalarProperty Name="TraineeEnrollments" ColumnName="TraineeEnrollments" />
+          <ScalarProperty Name="TraineeEnrollmentID" ColumnName="TraineeEnrollmentID" />
           <ScalarProperty Name="TraineeID" ColumnName="TraineeID" />
           <ScalarProperty Name="CourseID" ColumnName="CourseID" />
         </MappingFragment>

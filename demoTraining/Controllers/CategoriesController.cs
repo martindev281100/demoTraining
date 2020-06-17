@@ -10,7 +10,7 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
-    [Authorize(Roles = "Staff")]
+    [Authorize(Roles = "Staff, Trainee")]
 
     public class CategoriesController : Controller
     {
@@ -38,6 +38,7 @@ namespace demoTraining.Controllers
         }
 
         // GET: Categories/Create
+        [Authorize(Roles = "Staff")]
         public ActionResult Create()
         {
             return View();

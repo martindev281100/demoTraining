@@ -8,20 +8,26 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create",null,new{@class="btn btn-success"})
+    @Html.ActionLink("Create New", "Create", null,new {@class="btn btn-default"})
 </p>
 <table class="table">
     <tr>
         <th>
-            Course Name
+            @*@Html.DisplayNameFor(model => model.CourseName)*@
+            Course Name:
         </th>
         <th>
-            Description
+            @*@Html.DisplayNameFor(model => model.CourseDescription)*@
+            Description:
         </th>
         <th>
-            Category Name
+            @*@Html.DisplayNameFor(model => model.Category.CategoryName)*@
+            Category:
         </th>
-
+        <th>
+            @*@Html.DisplayNameFor(model => model.Topic.TopicName)*@
+            Topic:
+        </th>
         <th></th>
     </tr>
 
@@ -36,10 +42,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.Category.CategoryName)
         </td>
-
+        <td>
+            @Html.DisplayFor(modelItem => item.Topic.TopicName)
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CourseID }, new {@class="btn btn-warning"})
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseID }, new { @class = "btn btn-danger" })
+            @Html.ActionLink("Details", "Details", new { id=item.CourseID }, new {@class="btn btn-success"})
+            @Html.ActionLink("Delete", "Delete", new { id=item.CourseID }, new{@class="btn btn-danger"})
         </td>
     </tr>
 }

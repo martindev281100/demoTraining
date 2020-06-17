@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="96c6c162c1a1419bb6aeab2e1607902a" Name="Diagram1">
-        <EntityTypeShape EntityType="TrainingDBModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.AspNetRole" Width="1.5" PointX="5.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.AspNetUser" Width="1.5" PointX="8" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.Category" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.Course" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.Staff" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.Topic" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.Trainee" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.TraineeEnrollment" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.Trainer" Width="1.5" PointX="7.75" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrainingDBModel.TrainerEnrollment" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
+      <Diagram DiagramId="75ca2592472a4dc4a7168bffb909d04f" Name="Diagram1">
+        <EntityTypeShape EntityType="TrainingDBModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.AspNetRole" Width="1.5" PointX="5.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.AspNetUser" Width="1.5" PointX="8" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.Category" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.Course" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.Staff" Width="1.5" PointX="9.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.Topic" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.Trainee" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.TraineeEnrollment" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.Trainer" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingDBModel.TrainerEnrollment" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="TrainingDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="TrainingDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="TrainingDBModel.FK__Course__Category__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="TrainingDBModel.FK__Course__TopicID__4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="TrainingDBModel.FK__TraineeEn__Cours__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="TrainingDBModel.FK__TrainerEn__Topic__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="TrainingDBModel.FK__TraineeEn__Train__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="TrainingDBModel.FK__TrainerEn__Train__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingDBModel.FK__Course__Category__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingDBModel.FK__Course__TopicID__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingDBModel.FK__TraineeEn__Cours__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingDBModel.FK__TrainerEn__Topic__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingDBModel.FK__TraineeEn__Train__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingDBModel.FK__TrainerEn__Train__5165187F" ManuallyRouted="false" />
         <AssociationConnector Association="TrainingDBModel.AspNetUserRoles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
