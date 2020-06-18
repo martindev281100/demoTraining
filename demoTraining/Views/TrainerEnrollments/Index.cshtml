@@ -5,40 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <h2>List of Trainer's Enrollments</h2>
-<p>
-    @Html.ActionLink("Create New Enrollment for Trainer", "Create", null, new { @class = "btn btn-default" })
+<h2>List of Trainer's Enrollments</h2>
+@if (User.IsInRole("Staff"))
+{
+    <p>
+        @Html.ActionLink("Create New Enrollment for Trainer", "Create", null, new { @class = "btn btn-default" })
 
-    @Html.ActionLink("Enroll for Trainee", "Index", "TraineeEnrollments", null, new { @class = "btn btn-default" })
-</p><p>
-</p>
+        @Html.ActionLink("Enroll for Trainee", "Index", "TraineeEnrollments", null, new { @class = "btn btn-default" })
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            Topic Name
-        </th>
-        <th>
             Trainer Name
         </th>
+        <th>
+            Topic Name
+        </th>
+
         <th>
             Action
         </th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Topic.TopicName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trainer.TrainerName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TrainerEnrollmentID }, new { @class = "btn btn-warning" }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TrainerEnrollmentID }, new { @class = "btn btn-primary" }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TrainerEnrollmentID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Trainer.TrainerName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Topic.TopicName)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.TrainerEnrollmentID }, new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Details", "Details", new { id = item.TrainerEnrollmentID }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.TrainerEnrollmentID }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
 }
 
 </table>

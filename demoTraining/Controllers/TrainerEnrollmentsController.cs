@@ -10,18 +10,19 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
-    [Authorize(Roles = "Staff")]
 
     public class TrainerEnrollmentsController : Controller
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
         // GET: TrainerEnrollments
+        [Authorize(Roles = "Staff, Trainer")]
         public ActionResult Index()
         {
             var trainerEnrollments = db.TrainerEnrollments.Include(t => t.Topic).Include(t => t.Trainer);
             return View(trainerEnrollments.ToList());
         }
+        [Authorize(Roles = "Staff")]
 
         // GET: TrainerEnrollments/Details/5
         public ActionResult Details(int? id)
@@ -37,6 +38,7 @@ namespace demoTraining.Controllers
             }
             return View(trainerEnrollment);
         }
+        [Authorize(Roles = "Staff")]
 
         // GET: TrainerEnrollments/Create
         public ActionResult Create()
@@ -64,6 +66,7 @@ namespace demoTraining.Controllers
             ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName", trainerEnrollment.TrainerID);
             return View(trainerEnrollment);
         }
+        [Authorize(Roles = "Staff")]
 
         // GET: TrainerEnrollments/Edit/5
         public ActionResult Edit(int? id)
@@ -99,6 +102,7 @@ namespace demoTraining.Controllers
             ViewBag.TrainerID = new SelectList(db.Trainers, "TrainerID", "TrainerName", trainerEnrollment.TrainerID);
             return View(trainerEnrollment);
         }
+        [Authorize(Roles = "Staff")]
 
         // GET: TrainerEnrollments/Delete/5
         public ActionResult Delete(int? id)
@@ -125,6 +129,7 @@ namespace demoTraining.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Staff")]
 
         protected override void Dispose(bool disposing)
         {

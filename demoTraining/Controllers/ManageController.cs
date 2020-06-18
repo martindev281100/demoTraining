@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace demoTraining.Controllers
 {
-    public class AdminController : Controller
+    public class ManageController : Controller
     {
         // GET: Admin
         public ActionResult Index()

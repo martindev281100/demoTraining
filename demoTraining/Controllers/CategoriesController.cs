@@ -17,11 +17,18 @@ namespace demoTraining.Controllers
         private TrainingDBEntities db = new TrainingDBEntities();
 
         // GET: Categories
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            return View(db.Categories.ToList());
-        }
+            var categories = from c in db.Categories
+                          select c;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                categories = categories.Where(c => c.CategoryName.Contains(searchString)
+                                               );
+            }
+            return View(categories.ToList());
 
+        }
         // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {

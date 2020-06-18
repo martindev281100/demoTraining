@@ -6,10 +6,20 @@
 }
 
 <h2>Index</h2>
+@using (Html.BeginForm())
+{
 
-<p>
-    @Html.ActionLink("Create New", "Create", null,new {@class="btn btn-default"})
-</p>
+    @Html.ActionLink("Create New Course", "Create", null, new { @class = "btn btn-default" })
+
+    <div class="form-group navbar-right">
+
+        @Html.TextBox("SearchString", null, new { @class = "form-control", @placeholder = "Search" })
+    </div>
+
+    <button class="btn btn-default navbar-right" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+
+}
+
 <table class="table">
     <tr>
         <th>
@@ -31,26 +41,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Topic.TopicName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseID }, new {@class="btn btn-warning"})
-            @Html.ActionLink("Details", "Details", new { id=item.CourseID }, new {@class="btn btn-success"})
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseID }, new{@class="btn btn-danger"})
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic.TopicName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Details", "Details", new { id = item.CourseID }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.CourseID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>

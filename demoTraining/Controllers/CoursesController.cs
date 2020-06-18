@@ -16,10 +16,25 @@ namespace demoTraining.Controllers
         private TrainingDBEntities db = new TrainingDBEntities();
 
         // GET: Courses
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var courses = db.Courses.Include(c => c.Category).Include(c => c.Topic);
+        //    return View(courses.ToList());
+        //}
+
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            var courses = db.Courses.Include(c => c.Category).Include(c => c.Topic);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var courses = from s in db.Courses
+                select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                courses = courses.Where(c => c.CourseName.Contains(searchString)
+                                               );
+            }
             return View(courses.ToList());
+
         }
 
         // GET: Courses/Details/5

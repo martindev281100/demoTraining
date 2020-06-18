@@ -7,17 +7,20 @@
 
 <h2>List of Trainees</h2>
 
-<p>
-    @Html.ActionLink("Create New Trainee", "Create", null, new { @class = "btn btn-default" })
-</p>
-@using (Html.BeginForm())
-{
-    <p>
-        Search: @Html.TextBox("SearchString", null, new{@class="form-control"})
-        <input type="submit" value="Search" class="btn btn-default"/>
-    </p>
-}
-<table class="table">
+    @using (Html.BeginForm())
+    {
+
+        @Html.ActionLink("Create New Trainee", "Create", null, new { @class = "btn btn-default" })
+
+        <div class="form-group navbar-right">
+            @Html.TextBox("SearchString", null,new { @class = "form-control", @placeholder = "Search" })
+        </div>
+
+        <button class="btn btn-default navbar-right" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+
+    }
+
+<table class="table table-striped">
     <tr>
         <th>
             @Html.ActionLink("Trainee Name", "Index", new { sortOrder = ViewBag.NameSortParm })

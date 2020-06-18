@@ -1,4 +1,5 @@
-﻿@model IEnumerable<demoTraining.Models.Topic>
+﻿@using demoTraining.Models
+@model IEnumerable<demoTraining.Models.Topic>
 
 @{
     ViewBag.Title = "Index";
@@ -30,22 +31,22 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TopicName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TopicDescription)
+    </td>
+    @if (User.IsInRole("Staff"))
+    {
         <td>
-            @Html.DisplayFor(modelItem => item.TopicName)
+            @Html.ActionLink("Edit", "Edit", new { id = item.TopicID }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.TopicID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.TopicID }, new { @class = "btn btn-danger" })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopicDescription)
-        </td>
-        @if (User.IsInRole("Staff"))
-        {
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.TopicID}, new {@class = "btn btn-warning"}) |
-                @Html.ActionLink("Details", "Details", new {id = item.TopicID}, new {@class = "btn btn-success"}) |
-                @Html.ActionLink("Delete", "Delete", new {id = item.TopicID}, new {@class = "btn btn-danger"})
-            </td>
-        }
-    </tr>
+    }
+</tr>
 }
 
 </table>
