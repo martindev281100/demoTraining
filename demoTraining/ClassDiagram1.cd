@@ -20,13 +20,6 @@
       <Property Name="TrainingDBEntities" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="demoTraining.Controllers.AuthenController" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgAABAAAAAABAAAAAAAQAAAAAAA=</HashCode>
-      <FileName>Controllers\AuthenController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="demoTraining.Controllers.CategoriesController" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
@@ -146,44 +139,60 @@
     <AssociationLine Name="TopicsController" Type="demoTraining.Controllers.TopicsController" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="5.344" Y="1.191" />
-        <Point X="5.344" Y="1.375" />
-        <Point X="9.875" Y="1.375" />
+        <Point X="5.344" Y="1.312" />
+        <Point X="6.417" Y="1.312" Type="JumpStart" />
+        <Point X="6.583" Y="1.312" Type="JumpEnd" />
+        <Point X="8.167" Y="1.312" Type="JumpStart" />
+        <Point X="8.333" Y="1.312" Type="JumpEnd" />
+        <Point X="9.875" Y="1.312" />
         <Point X="9.875" Y="1.75" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="TrainersController" Type="demoTraining.Controllers.TrainersController" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="4.453" Y="1.191" />
-        <Point X="4.453" Y="1.375" />
-        <Point X="4.542" Y="1.375" Type="JumpStart" />
-        <Point X="4.708" Y="1.375" Type="JumpEnd" />
-        <Point X="5.042" Y="1.375" Type="JumpStart" />
-        <Point X="5.208" Y="1.375" Type="JumpEnd" />
-        <Point X="11.75" Y="1.375" />
+        <Point X="4.453" Y="1.465" />
+        <Point X="5.042" Y="1.465" Type="JumpStart" />
+        <Point X="5.208" Y="1.465" Type="JumpEnd" />
+        <Point X="6.417" Y="1.465" Type="JumpStart" />
+        <Point X="6.583" Y="1.465" Type="JumpEnd" />
+        <Point X="7.792" Y="1.465" Type="JumpStart" />
+        <Point X="7.958" Y="1.465" Type="JumpEnd" />
+        <Point X="9.792" Y="1.465" Type="JumpStart" />
+        <Point X="9.958" Y="1.465" Type="JumpEnd" />
+        <Point X="11.75" Y="1.465" />
         <Point X="11.75" Y="1.75" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="TraineeEnrollmentsController" Type="demoTraining.Controllers.TraineeEnrollmentsController" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="4.109" Y="1.191" />
-        <Point X="4.109" Y="1.375" />
-        <Point X="4.198" Y="1.375" Type="JumpStart" />
-        <Point X="4.365" Y="1.375" Type="JumpEnd" />
-        <Point X="4.542" Y="1.375" Type="JumpStart" />
-        <Point X="4.708" Y="1.375" Type="JumpEnd" />
-        <Point X="5.042" Y="1.375" Type="JumpStart" />
-        <Point X="5.208" Y="1.375" Type="JumpEnd" />
-        <Point X="13.875" Y="1.375" />
+        <Point X="4.109" Y="1.465" />
+        <Point X="5.042" Y="1.465" Type="JumpStart" />
+        <Point X="5.208" Y="1.465" Type="JumpEnd" />
+        <Point X="6.417" Y="1.465" Type="JumpStart" />
+        <Point X="6.583" Y="1.465" Type="JumpEnd" />
+        <Point X="7.792" Y="1.465" Type="JumpStart" />
+        <Point X="7.958" Y="1.465" Type="JumpEnd" />
+        <Point X="9.792" Y="1.465" Type="JumpStart" />
+        <Point X="9.958" Y="1.465" Type="JumpEnd" />
+        <Point X="13.875" Y="1.465" />
         <Point X="13.875" Y="1.75" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="TrainerEnrollmentsController" Type="demoTraining.Controllers.TrainerEnrollmentsController" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="5" Y="1.191" />
-        <Point X="5" Y="1.375" />
-        <Point X="5.042" Y="1.375" Type="JumpStart" />
-        <Point X="5.208" Y="1.375" Type="JumpEnd" />
-        <Point X="15.812" Y="1.375" />
+        <Point X="5" Y="1.465" />
+        <Point X="5.042" Y="1.465" Type="JumpStart" />
+        <Point X="5.208" Y="1.465" Type="JumpEnd" />
+        <Point X="6.417" Y="1.465" Type="JumpStart" />
+        <Point X="6.583" Y="1.465" Type="JumpEnd" />
+        <Point X="7.792" Y="1.465" Type="JumpStart" />
+        <Point X="7.958" Y="1.465" Type="JumpEnd" />
+        <Point X="9.792" Y="1.465" Type="JumpStart" />
+        <Point X="9.958" Y="1.465" Type="JumpEnd" />
+        <Point X="15.812" Y="1.465" />
         <Point X="15.812" Y="1.75" />
       </Path>
     </AssociationLine>
@@ -192,7 +201,6 @@
       <FileName>Models\TrainingModels.Context.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="AuthenController" />
       <Property Name="CategoriesController" />
       <Property Name="HomeController" />
       <Property Name="CoursesController" />

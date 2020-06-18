@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using demoTraining.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+
 namespace demoTraining.Controllers
 {
-    public class AuthenController : Account
+    
+
+public class AuthenController : Controller
     {
         // GET: Authen
         // GET: Authen
@@ -86,5 +87,6 @@ namespace demoTraining.Controllers
         }
 
 
-    }
+    
+}
 }
