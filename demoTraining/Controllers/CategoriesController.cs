@@ -16,6 +16,14 @@ namespace demoTraining.Controllers
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
+        public Category Category
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // GET: Categories
         public ViewResult Index(string sortOrder, string searchString)
         {

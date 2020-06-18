@@ -7,11 +7,19 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-
+[assembly: OwinStartupAttribute(typeof(demoTraining.Startup))]
 namespace demoTraining
 {
     public class Startup
     {
+        public Models.TrainingDBEntities TrainingDBEntities
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void Configuration(IAppBuilder app)
         {
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888

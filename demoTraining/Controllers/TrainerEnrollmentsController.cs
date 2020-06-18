@@ -15,6 +15,14 @@ namespace demoTraining.Controllers
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
+        public TrainerEnrollment TrainerEnrollment
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // GET: TrainerEnrollments
         [Authorize(Roles = "Staff, Trainer")]
         public ActionResult Index()

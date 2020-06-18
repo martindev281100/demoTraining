@@ -15,6 +15,14 @@ namespace demoTraining.Controllers
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
+        public Course Course
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // GET: Courses
         //public ActionResult Index()
         //{

@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 namespace demoTraining.Controllers
 {
-    public class AuthenController : Controller
+    public class AuthenController : Account
     {
         // GET: Authen
         // GET: Authen
@@ -84,7 +84,7 @@ namespace demoTraining.Controllers
             manager.Create(user, Password);
             manager.AddToRole(user.Id, role);
         }
-       
+
 
     }
 }

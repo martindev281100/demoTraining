@@ -15,6 +15,14 @@ namespace demoTraining.Controllers
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
+        public TraineeEnrollment TraineeEnrollment
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // GET: TraineeEnrollments
         public ActionResult Index()
         {

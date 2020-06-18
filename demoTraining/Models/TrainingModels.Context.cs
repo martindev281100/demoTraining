@@ -38,5 +38,85 @@ namespace demoTraining.Models
         public virtual DbSet<TraineeEnrollment> TraineeEnrollments { get; set; }
         public virtual DbSet<Trainer> Trainers { get; set; }
         public virtual DbSet<TrainerEnrollment> TrainerEnrollments { get; set; }
+
+        public Controllers.AuthenController AuthenController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Controllers.CategoriesController CategoriesController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Controllers.HomeController HomeController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Controllers.CoursesController CoursesController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Controllers.StaffsController StaffsController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Controllers.TraineesController TraineesController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Controllers.TopicsController TopicsController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Controllers.TrainersController TrainersController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Controllers.TraineeEnrollmentsController TraineeEnrollmentsController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Controllers.TrainerEnrollmentsController TrainerEnrollmentsController
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

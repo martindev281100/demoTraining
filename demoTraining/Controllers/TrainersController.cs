@@ -15,6 +15,14 @@ namespace demoTraining.Controllers
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
+        public Trainer Trainer
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // GET: Trainers
         public ActionResult Index()
         {

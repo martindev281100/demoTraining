@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="demoTraining.MvcApplication" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Startup" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Startup" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TrainingDBEntities" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Controllers.AuthenController" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAABAAAAAABAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Controllers\AuthenController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Controllers.CategoriesController" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAACAA=</HashCode>
+      <FileName>Controllers\CategoriesController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Category" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Controllers.CoursesController" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAIAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CoursesController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Course" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Controllers.HomeController" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Controllers.StaffsController" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAACEAAEACABEAAAAAAAA=</HashCode>
+      <FileName>Controllers\StaffsController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Staff" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Controllers.TopicsController" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAACAAAAA=</HashCode>
+      <FileName>Controllers\TopicsController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Topic" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Controllers.TraineeEnrollmentsController" Collapsed="true">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAIEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\TraineeEnrollmentsController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TraineeEnrollment" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Controllers.TraineesController" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAQEAAEAGABEAAAAAAAA=</HashCode>
+      <FileName>Controllers\TraineesController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Trainee" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Controllers.TrainerEnrollmentsController" Collapsed="true">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\TrainerEnrollmentsController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TrainerEnrollment" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Controllers.TrainersController" Collapsed="true">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAQGAAEACABEAAAAAAAA=</HashCode>
+      <FileName>Controllers\TrainersController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Trainer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Models.Account" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAAoAA=</HashCode>
+      <FileName>Models\Account.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AspNetUser" />
+      <Property Name="AspNetRole" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Models.TrainingDBEntities" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <AssociationLine Name="CategoriesController" Type="demoTraining.Controllers.CategoriesController" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.625" Y="1.191" />
+        <Point X="4.625" Y="1.465" />
+        <Point X="1.25" Y="1.465" />
+        <Point X="1.25" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="HomeController" Type="demoTraining.Controllers.HomeController" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.281" Y="1.191" />
+        <Point X="4.281" Y="1.465" />
+        <Point X="3" Y="1.465" />
+        <Point X="3" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TopicsController" Type="demoTraining.Controllers.TopicsController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.344" Y="1.191" />
+        <Point X="5.344" Y="1.375" />
+        <Point X="9.875" Y="1.375" />
+        <Point X="9.875" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TrainersController" Type="demoTraining.Controllers.TrainersController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.453" Y="1.191" />
+        <Point X="4.453" Y="1.375" />
+        <Point X="4.542" Y="1.375" Type="JumpStart" />
+        <Point X="4.708" Y="1.375" Type="JumpEnd" />
+        <Point X="5.042" Y="1.375" Type="JumpStart" />
+        <Point X="5.208" Y="1.375" Type="JumpEnd" />
+        <Point X="11.75" Y="1.375" />
+        <Point X="11.75" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TraineeEnrollmentsController" Type="demoTraining.Controllers.TraineeEnrollmentsController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.109" Y="1.191" />
+        <Point X="4.109" Y="1.375" />
+        <Point X="4.198" Y="1.375" Type="JumpStart" />
+        <Point X="4.365" Y="1.375" Type="JumpEnd" />
+        <Point X="4.542" Y="1.375" Type="JumpStart" />
+        <Point X="4.708" Y="1.375" Type="JumpEnd" />
+        <Point X="5.042" Y="1.375" Type="JumpStart" />
+        <Point X="5.208" Y="1.375" Type="JumpEnd" />
+        <Point X="13.875" Y="1.375" />
+        <Point X="13.875" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TrainerEnrollmentsController" Type="demoTraining.Controllers.TrainerEnrollmentsController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5" Y="1.191" />
+        <Point X="5" Y="1.375" />
+        <Point X="5.042" Y="1.375" Type="JumpStart" />
+        <Point X="5.208" Y="1.375" Type="JumpEnd" />
+        <Point X="15.812" Y="1.375" />
+        <Point X="15.812" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ABAAEAAQAACCgCQAAAAAEACiEKAAUAAAAAIgDDAAAAE=</HashCode>
+      <FileName>Models\TrainingModels.Context.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AuthenController" />
+      <Property Name="CategoriesController" />
+      <Property Name="HomeController" />
+      <Property Name="CoursesController" />
+      <Property Name="StaffsController" />
+      <Property Name="TraineesController" />
+      <Property Name="TopicsController" />
+      <Property Name="TrainersController" />
+      <Property Name="TraineeEnrollmentsController" />
+      <Property Name="TrainerEnrollmentsController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="demoTraining.Models.AspNetRole" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AspNetRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Models.AspNetUser" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAACAAoEAAAAAAQAABAAAAQAAIAQQAABAAAQE=</HashCode>
+      <FileName>Models\AspNetUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Models.Category" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAAAAABACAAA=</HashCode>
+      <FileName>Models\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Models.Course" Collapsed="true">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAACAQAAAAAAAAAAAAAAAIAAAgQAAAAAACAACAA=</HashCode>
+      <FileName>Models\Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Models.Staff" Collapsed="true">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAACAAAAAAAggAACAA=</HashCode>
+      <FileName>Models\Staff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Models.Topic" Collapsed="true">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAABAACAA=</HashCode>
+      <FileName>Models\Topic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Models.Trainee" Collapsed="true">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAACAAABAAAIAAAAAAgAIAAAAACAAAgEAAAAAA=</HashCode>
+      <FileName>Models\Trainee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Models.TraineeEnrollment" Collapsed="true">
+    <Position X="12.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAgAAAAAAQEAAAAAAAAAAg=</HashCode>
+      <FileName>Models\TraineeEnrollment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Models.Trainer" Collapsed="true">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEAAAAACAAAAAAAAAAABAAAAAACABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Trainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="demoTraining.Models.TrainerEnrollment" Collapsed="true">
+    <Position X="14.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAABAAAAACAAgAAAAAAACAAAAA=</HashCode>
+      <FileName>Models\TrainerEnrollment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

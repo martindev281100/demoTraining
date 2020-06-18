@@ -10,6 +10,14 @@ namespace demoTraining
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public Startup Startup
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
