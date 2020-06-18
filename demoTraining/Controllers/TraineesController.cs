@@ -25,7 +25,8 @@ namespace demoTraining.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 trainee = trainee.Where(t => t.TraineeName.Contains(searchString)
-                                               || t.TraineeEmail.Contains(searchString));
+                                               || t.TraineeEmail.Contains(searchString)|| t.ProgrammingLanguage.Contains(searchString)
+                                               || t.Education.Contains(searchString));
             }
             switch (sortOrder)
             {
@@ -56,7 +57,7 @@ namespace demoTraining.Controllers
             }
             return View(trainee);
         }
-        
+        [Authorize(Roles = "Staff")]
         // GET: Trainees/Create
         public ActionResult Create()
         {
@@ -80,7 +81,7 @@ namespace demoTraining.Controllers
 
             return View(trainee);
         }
-
+        [Authorize(Roles = "Staff")]
         // GET: Trainees/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -111,6 +112,7 @@ namespace demoTraining.Controllers
             }
             return View(trainee);
         }
+        [Authorize(Roles = "Staff")]
 
         // GET: Trainees/Delete/5
         public ActionResult Delete(int? id)

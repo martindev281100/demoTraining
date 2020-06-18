@@ -60,6 +60,7 @@ namespace demoTraining.Controllers
 
             return View(category);
         }
+        [Authorize(Roles = "Staff")]
 
         // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
@@ -91,6 +92,7 @@ namespace demoTraining.Controllers
             }
             return View(category);
         }
+        [Authorize(Roles = "Staff")]
 
         // GET: Categories/Delete/5
         public ActionResult Delete(int? id)

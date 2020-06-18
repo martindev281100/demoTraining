@@ -10,7 +10,7 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
-    [Authorize(Roles = "Staff, Trainer")]
+    [Authorize(Roles = "Staff, Trainer, Admin")]
     public class TrainersController : Controller
     {
         private TrainingDBEntities db = new TrainingDBEntities();
@@ -37,8 +37,11 @@ namespace demoTraining.Controllers
         }
 
         // GET: Trainers/Create
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Create()
         {
+
             return View();
         }
 

@@ -10,6 +10,7 @@ using demoTraining.Models;
 
 namespace demoTraining.Controllers
 {
+    [Authorize (Roles = "Staff, Trainer")]
     public class CoursesController : Controller
     {
         private TrainingDBEntities db = new TrainingDBEntities();
@@ -35,7 +36,7 @@ namespace demoTraining.Controllers
             }
             return View(course);
         }
-
+        [Authorize(Roles = "Staff")]
         // GET: Courses/Create
         public ActionResult Create()
         {
@@ -62,6 +63,7 @@ namespace demoTraining.Controllers
             ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", course.TopicID);
             return View(course);
         }
+        [Authorize(Roles = "Staff")]
 
         // GET: Courses/Edit/5
         public ActionResult Edit(int? id)
@@ -97,6 +99,7 @@ namespace demoTraining.Controllers
             ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "TopicName", course.TopicID);
             return View(course);
         }
+        [Authorize(Roles = "Staff")]
 
         // GET: Courses/Delete/5
         public ActionResult Delete(int? id)

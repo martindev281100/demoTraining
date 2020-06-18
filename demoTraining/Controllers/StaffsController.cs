@@ -35,6 +35,7 @@ namespace demoTraining.Controllers
             }
             return View(staff);
         }
+        [Authorize(Roles = "Admin")]
 
         // GET: Staffs/Create
         public ActionResult Create()

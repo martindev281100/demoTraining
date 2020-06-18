@@ -8,8 +8,15 @@
 <h2>List of Trainees</h2>
 
 <p>
-    @Html.ActionLink("Create New Trainee", "Create", null, new {@class="btn btn-default"})
+    @Html.ActionLink("Create New Trainee", "Create", null, new { @class = "btn btn-default" })
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Search: @Html.TextBox("SearchString", null, new{@class="form-control"})
+        <input type="submit" value="Search" class="btn btn-default"/>
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -38,34 +45,35 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TraineeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TraineeEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DOB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Education)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProgrammingLanguage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ToeicScore)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TraineeID },new{@class="btn btn-warning"})
-            @Html.ActionLink("Delete", "Delete", new { id=item.TraineeID },new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TraineeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TraineeEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Education)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgrammingLanguage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToeicScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TraineeID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.TraineeID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
