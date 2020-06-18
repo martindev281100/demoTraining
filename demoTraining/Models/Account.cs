@@ -23,22 +23,7 @@ namespace demoTraining.Models
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
-        public AspNetUser AspNetUser
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public AspNetRole AspNetRole
-        {
-            get => default;
-            set
-            {
-            }
+        
         }
     }
 
-
-}

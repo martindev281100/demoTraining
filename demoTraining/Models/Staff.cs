@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+
 namespace demoTraining.Models
 {
     using System;
@@ -15,9 +18,15 @@ namespace demoTraining.Models
     public partial class Staff
     {
         public int StaffID { get; set; }
+        [Required]
         public string StaffName { get; set; }
+        [Required]
         public Nullable<System.DateTime> DOB { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [Required]
         public string StaffEmail { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [Required]
         public string StaffPhone { get; set; }
     }
 }

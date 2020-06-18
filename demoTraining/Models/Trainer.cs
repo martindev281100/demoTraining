@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace demoTraining.Models
 {
     using System;
@@ -21,9 +23,15 @@ namespace demoTraining.Models
         }
     
         public int TrainerID { get; set; }
+        [Required]
         public string TrainerName { get; set; }
+        [Required]
         public Nullable<System.DateTime> DOB { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [Required]
         public string TrainerEmail { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [Required]
         public string TrainerPhone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

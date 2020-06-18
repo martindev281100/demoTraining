@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace demoTraining.Models
 {
     using System;
@@ -21,9 +23,13 @@ namespace demoTraining.Models
         }
     
         public int CourseID { get; set; }
+        [Required]
         public string CourseName { get; set; }
+        [Required]
         public string CourseDescription { get; set; }
+        [Required]
         public Nullable<int> TopicID { get; set; }
+        [Required]
         public Nullable<int> CategoryID { get; set; }
     
         public virtual Category Category { get; set; }

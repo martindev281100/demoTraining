@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace demoTraining.Models
 {
     using System;
@@ -21,7 +23,9 @@ namespace demoTraining.Models
         }
     
         public int CategoryID { get; set; }
+        [Required]
         public string CategoryName { get; set; }
+        [Required]
         public string CategoryDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
