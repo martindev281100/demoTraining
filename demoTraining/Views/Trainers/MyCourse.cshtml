@@ -5,11 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>MyCourse</h2>
+<h2>My Topic</h2>
+@if (User.IsInRole("Staff"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new{@class="btn btn-default"})
+    </p>
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create", null, new{@class="btn btn-default"})
-</p>
 <table class="table">
     <tr>
         <th>
@@ -32,11 +35,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.Topic.TopicName)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {id = item.TrainerID}, new{@class="btn btn-warning"})
-            @Html.ActionLink("Details", "Details", new {id = item.TrainerID}, new{@class="btn btn-success"}) 
-            @Html.ActionLink("Delete", "Delete", new {id = item.TrainerID}, new{@class="btn btn-danger"})
-        </td>
+        @if (User.IsInRole("Staff"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.TrainerID}, new{@class="btn btn-warning"})
+                @Html.ActionLink("Details", "Details", new {id = item.TrainerID}, new{@class="btn btn-success"}) 
+                @Html.ActionLink("Delete", "Delete", new {id = item.TrainerID}, new{@class="btn btn-danger"})
+            </td>
+        }
+        
     </tr>
 }
 

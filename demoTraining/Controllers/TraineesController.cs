@@ -15,13 +15,7 @@ namespace demoTraining.Controllers
     {
         private TrainingDBEntities db = new TrainingDBEntities();
 
-        public Trainee Trainee
-        {
-            get => default;
-            set
-            {
-            }
-        }
+       
 
         public ActionResult Index(string sortOrder, string searchString)
         {

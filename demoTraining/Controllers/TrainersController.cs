@@ -45,7 +45,7 @@ namespace demoTraining.Controllers
         }
 
         // GET: Trainers/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Staff")]
 
         public ActionResult Create()
         {

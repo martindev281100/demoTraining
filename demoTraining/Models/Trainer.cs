@@ -24,6 +24,7 @@ namespace demoTraining.Models
     
         public int TrainerID { get; set; }
         [Required]
+
         public string TrainerName { get; set; }
         [Required]
         public Nullable<System.DateTime> DOB { get; set; }

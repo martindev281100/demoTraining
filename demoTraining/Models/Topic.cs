@@ -25,6 +25,8 @@ namespace demoTraining.Models
     
         public int TopicID { get; set; }
         [Required]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
+
         public string TopicName { get; set; }
         [Required]
         public string TopicDescription { get; set; }

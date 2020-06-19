@@ -1,13 +1,18 @@
-﻿@{
-    ViewBag.Title = "_AdminMenu";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@using Microsoft.AspNet.Identity
+@{ ViewBag.Title = "_AdminMenu";
+                //Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Profile", "Staffs", routeValues: null, htmlAttributes: new { title = "Profile" })
+    </li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span> Log Off</a></li>
+</ul>
 
 
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Staffs", "Index", "Staffs")</li>
-        <li>@Html.ActionLink("Trainers", "Index", "Trainers")</li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()" ><span class="glyphicon glyphicon-off"></span> Log Off</a></li>
+<ul class="nav navbar-nav navbar-right">
+    <li>@Html.ActionLink("Staffs", "Index", "Staffs")</li>
+    <li>@Html.ActionLink("Trainers", "Index", "Trainers")</li>
 
-    </ul>
+</ul>

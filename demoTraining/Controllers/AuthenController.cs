@@ -65,7 +65,7 @@ public class AuthenController : Controller
                 var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                 authenticationManager.SignIn(new AuthenticationProperties { }, userIdentity);
-                return RedirectToAction("Index", "Courses");
+                return RedirectToAction("Index", "Home");
             }
             return View(acc);
         }

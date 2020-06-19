@@ -25,6 +25,8 @@ namespace demoTraining.Models
     
         public int TraineeID { get; set; }
         [Required]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
+
         public string TraineeName { get; set; }
         [DataType(DataType.EmailAddress)]
         [Required]

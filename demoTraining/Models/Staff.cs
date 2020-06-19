@@ -19,10 +19,12 @@ namespace demoTraining.Models
     {
         public int StaffID { get; set; }
         [Required]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
         public string StaffName { get; set; }
         [Required]
         public Nullable<System.DateTime> DOB { get; set; }
-        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+
         [Required]
         public string StaffEmail { get; set; }
         [DataType(DataType.PhoneNumber)]

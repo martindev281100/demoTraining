@@ -24,6 +24,8 @@ namespace demoTraining.Models
     
         public int CategoryID { get; set; }
         [Required]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
+
         public string CategoryName { get; set; }
         [Required]
         public string CategoryDescription { get; set; }

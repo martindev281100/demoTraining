@@ -24,6 +24,8 @@ namespace demoTraining.Models
     
         public int CourseID { get; set; }
         [Required]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
+
         public string CourseName { get; set; }
         [Required]
         public string CourseDescription { get; set; }
